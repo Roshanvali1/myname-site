@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shape Chooser</title>
+<style>
+  body {
+    background: #0f172a;
+    color: #fff;
+    font-family: system-ui, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    background: #1e293b;
+    border: 2px solid #38bdf8;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn:hover {
+    background: #38bdf8;
+    color: #0f172a;
+  }
+
+  .shape {
+    width: 0;
+    height: 0;
+  }
+
+  /* Triangle shape */
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid limegreen;
+  }
+
+  /* Rhombus shape */
+  .rhombus {
+    width: 100px;
+    height: 100px;
+    background: hotpink;
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body>
+
+<h1>Click a box to see a shape</h1>
+
+<div class="buttons">
+  <div class="btn" onclick="showShape('triangle')">Box 1</div>
+  <div class="btn" onclick="showShape('rhombus')">Box 2</div>
+</div>
+
+<div id="shapeDisplay"></div>
+
+<script>
+  function showShape(type) {
+    const display = document.getElementById("shapeDisplay");
+    display.innerHTML = ""; // clear any existing shape
+
+    const shape = document.createElement("div");
+    shape.classList.add(type);
+    display.appendChild(shape);
+  }
+</script>
+
+</body>
+</html>
